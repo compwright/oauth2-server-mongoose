@@ -1,6 +1,6 @@
 # oauth2-server-mongoose
 
-[![Build Status](https://travis-ci.org/compwright/oauth2-server-mongoose.svg?branch=master)](https://travis-ci.org/compwright/oauth2-server-mongoose)
+[![Build Status](https://travis-ci.org/compwright/oauth2-server-mongoose.svg?branch=master)](https://travis-ci.org/compwright/oauth2-server-mongoose) [![Greenkeeper badge](https://badges.greenkeeper.io/compwright/oauth2-server-mongoose.svg)](https://greenkeeper.io/)
 
 MongoDB/Mongoose storage backend for [oauth2-server](https://github.com/compwright/node-oauth2-server)
 
