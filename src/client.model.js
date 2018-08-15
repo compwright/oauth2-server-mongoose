@@ -4,8 +4,12 @@ const { intersection } = require('lodash');
 
 const OAuthClientSchema = new Schema({
     name: { type: String },
-    secret: { type: String },
-    scopes: [{ type: String }],
+    secret: { type: String, required: true },
+    scopes: [{ type: String, default: [] }],
+    grants: [{ type: String, required: true }],
+    redirectUris: [{ type: String, default: [] }],
+    accessTokenLifetime: { type: Number, default: 3600 },
+    refreshTokenLifetime: { type: Number, default: 1209600 },
     isActive: { type: Boolean, default: true, index: true }
 }, {
     timestamps: true,

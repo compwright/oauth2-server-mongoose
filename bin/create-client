@@ -2,6 +2,7 @@
 
 const crypto = require('crypto');
 const inquirer = require('inquirer');
+const ms = require('ms');
 const mongoose = require('mongoose');
 const getModel = require('../src/client.model');
 
@@ -24,7 +25,7 @@ const getModel = require('../src/client.model');
     await mongoose.connect(dburl, { useNewUrlParser: true });
     const Client = getModel(mongoose);
 
-    const secret = crypto.randomBytes(16).toString('hex');
+    const secret = crypto.randomBytes(24).toString('hex');
     const userData = await inquirer.prompt([
       {
         type: 'input',
@@ -32,10 +33,42 @@ const getModel = require('../src/client.model');
         message: 'Client name'
       },
       {
+        type: 'checkbox',
+        name: 'grants',
+        message: 'Allowed OAuth 2.0 grants',
+        choices: [
+          'authorization_code',
+          'client_credentials',
+          'implicit',
+          'refresh_token',
+          'password'
+        ]
+      },
+      {
+        type: 'input',
+        name: 'accessTokenLifetime',
+        message: 'Access token lifetime',
+        default: '1h', // 1 hour
+        filter: n => Math.floor(ms(n) / 1000),
+      },
+      {
+        type: 'input',
+        name: 'refreshTokenLifetime',
+        message: 'Refresh token lifetime',
+        default: '2w', // 2 weeks
+        filter: n => Math.floor(ms(n) / 1000),
+      },
+      {
         type: 'input',
         name: 'scopes',
-        message: 'Client supported scopes (enter a space-separated list)',
+        message: 'Allowed scopes (enter a space-separated list)',
         filter: input => input.split(' ')
+      },
+      {
+        type: 'editor',
+        name: 'redirectUris',
+        message: 'Allowed redirect URIs (one per line)',
+        filter: input => input.trim().split('\n').filter(url => !!url)
       },
       {
         type: 'confirm',

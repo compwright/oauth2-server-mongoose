@@ -11,7 +11,7 @@ module.exports = (options = {}) => {
         UserModel: getUserModel(mongoose)
     });
 
-    return {    
+    return {
         getClient: async (clientId, clientSecret) => {
             try {
                 var client = await ClientModel.findById(clientId)
