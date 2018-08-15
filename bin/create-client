@@ -1,0 +1,58 @@
+#!/usr/bin/env node
+
+const crypto = require('crypto');
+const inquirer = require('inquirer');
+const mongoose = require('mongoose');
+const getModel = require('../src/client.model');
+
+(async () => {
+  try {
+    console.log('Create an OAuth client');
+
+    let dburl = process.argv[process.argv.length - 1];
+
+    if (!dburl) {
+      dburl = (await inquirer.prompt([
+        {
+          type: 'input',
+          name: 'dburl',
+          message: 'MongoDB connection URL'
+        }
+      ])).dburl;
+    }
+
+    await mongoose.connect(dburl, { useNewUrlParser: true });
+    const Client = getModel(mongoose);
+
+    const secret = crypto.randomBytes(16).toString('hex');
+    const userData = await inquirer.prompt([
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Client name'
+      },
+      {
+        type: 'input',
+        name: 'scopes',
+        message: 'Client supported scopes (enter a space-separated list)',
+        filter: input => input.split(' ')
+      },
+      {
+        type: 'confirm',
+        name: 'isActive',
+        message: 'Is active?',
+        default: true
+      }
+    ]);
+
+    const client = await Client.create({ ...userData, secret });
+
+    console.log('client_id:', client.id);
+    console.log('client_secret:', secret);
+  } catch (e) {
+    console.error(e);
+    var exitCode = 1;
+  } finally {
+    process.exit(exitCode || 0);
+  }
+})();

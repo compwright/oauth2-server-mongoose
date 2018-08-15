@@ -45,6 +45,20 @@ See [client.model.js](src/client.model.js) and [user.model.js](src/user.model.js
 
 > Note: if you do supply your own models, be sure to maintain the same plugins, static methods and query helpers.
 
+## Bundled Scripts
+
+### oauth2-create-client [dburl]
+
+Interactive script to add a client to the `oauthclients` database collection.
+
+Generates and encrypts the client secret automatically.
+
+### oauth2-create-user [dburl]
+
+Interactive script to add a user to the `oauthusers` database collection.
+
+Encrypts the user password automatically.
+
 ## License
 
 MIT license

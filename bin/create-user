@@ -1,0 +1,54 @@
+#!/usr/bin/env node
+
+const inquirer = require('inquirer');
+const mongoose = require('mongoose');
+const getModel = require('../src/user.model');
+
+(async () => {
+  try {
+    console.log('Create an OAuth user');
+
+    let dburl = process.argv[process.argv.length - 1];
+
+    if (!dburl) {
+      dburl = (await inquirer.prompt([
+        {
+          type: 'input',
+          name: 'dburl',
+          message: 'MongoDB connection URL'
+        }
+      ])).dburl;
+    }
+
+    await mongoose.connect(dburl, { useNewUrlParser: true });
+    const User = getModel(mongoose);
+
+    const userData = await inquirer.prompt([
+      {
+        type: 'input',
+        name: 'username',
+        message: 'Username'
+      },
+      {
+        type: 'password',
+        name: 'password',
+        message: 'Password'
+      },
+      {
+        type: 'confirm',
+        name: 'isActive',
+        message: 'Is active?',
+        default: true
+      }
+    ]);
+
+    const user = await User.create(userData);
+
+    console.log('user_id:', user.id);
+  } catch (e) {
+    console.error(e);
+    var exitCode = 1;
+  } finally {
+    process.exit(exitCode || 0);
+  }
+})();
