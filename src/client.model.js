@@ -1,6 +1,6 @@
 const { Schema } = require('mongoose');
 const mongooseBcrypt = require('mongoose-bcrypt');
-const { intersection } = require('lodash');
+const intersection = require('lodash/intersection');
 
 const OAuthClientSchema = new Schema({
     name: { type: String },

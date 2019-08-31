@@ -1,4 +1,4 @@
-const { defaultsDeep } = require('lodash');
+const defaultsDeep = require('lodash/defaultsDeep');
 const InvalidClientError = require('@compwright/oauth2-server/lib/errors/invalid-client-error');
 const getClientModel = require('./client.model');
 const getUserModel = require('./user.model');
