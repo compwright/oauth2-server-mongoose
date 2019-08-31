@@ -29,6 +29,9 @@
     "url": "https://github.com/compwright/oauth2-server-mongoose/issues"
   },
   "homepage": "https://github.com/compwright/oauth2-server-mongoose#readme",
+  "engines": {
+    "node" : ">=8"
+  },
   "dependencies": {
     "@compwright/oauth2-server": "^3.0.3",
     "inquirer": "^7.0.0",
