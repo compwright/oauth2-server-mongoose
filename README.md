@@ -16,7 +16,7 @@ MongoDB/Mongoose storage backend for [oauth2-server](https://github.com/compwrig
 
 ## Requirements
 
-* Node.js 8+
+* Node.js 10+
 * [oauth2-server](https://github.com/compwright/node-oauth2-server)
 * [mongoose](http://mongoosejs.com)
 * [mongoose-bcrypt](https://www.npmjs.com/package/mongoose-bcrypt) plugin
