@@ -17,7 +17,7 @@
   },
   "scripts": {
     "pretest": "eslint src test",
-    "test": "mocha test"
+    "test": "mocha test --timeout 10000 --exit"
   },
   "repository": {
     "type": "git",
@@ -30,19 +30,19 @@
   },
   "homepage": "https://github.com/compwright/oauth2-server-mongoose#readme",
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "dependencies": {
     "@compwright/oauth2-server": "^3.0.3",
-    "inquirer": "^7.1.0",
-    "lodash": "^4.17.15",
-    "ms": "^2.1.2"
+    "inquirer": "^7.3.3",
+    "lodash": "^4.17.20",
+    "ms": "^2.1.3"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "mocha": "^7.1.1",
-    "mongoose": "^5.9.6",
-    "mongoose-bcrypt": "^1.6.0"
+    "eslint": "^7.15.0",
+    "mocha": "^8.2.1",
+    "mongoose": "^5.11.8",
+    "mongoose-bcrypt": "^1.9.0"
   },
   "peerDependencies": {
     "mongoose": ">= 5",

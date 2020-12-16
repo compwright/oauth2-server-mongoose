@@ -1,6 +1,9 @@
 # oauth2-server-mongoose
 
-[![Build Status](https://travis-ci.org/compwright/oauth2-server-mongoose.svg?branch=master)](https://travis-ci.org/compwright/oauth2-server-mongoose) [![Greenkeeper badge](https://badges.greenkeeper.io/compwright/oauth2-server-mongoose.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/compwright/oauth2-server-mongoose.svg?branch=master)](https://travis-ci.org/compwright/oauth2-server-mongoose)
+[![Dependency Status](https://img.shields.io/david/compwright/oauth2-server-mongoose.svg?style=flat-square)](https://david-dm.org/compwright/oauth2-server-mongoose)
+[![Download Status](https://img.shields.io/npm/dm/oauth2-server-mongoose.svg?style=flat-square)](https://www.npmjs.com/package/oauth2-server-mongoose)
+[![Sponsor on GitHub](https://img.shields.io/static/v1?label=Sponsor&message=❤&logo=GitHub&link=https://github.com/sponsors/compwright)](https://github.com/sponsors/compwright)
 
 MongoDB/Mongoose storage backend for [oauth2-server](https://github.com/compwright/node-oauth2-server)
 

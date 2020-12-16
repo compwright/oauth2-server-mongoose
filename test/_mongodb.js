@@ -1,11 +1,9 @@
 const mongoose = require('mongoose');
 mongoose.set('useCreateIndex', true);
 
-before(done => {
-    mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true, useUnifiedTopology: true }, err => {
-        if (err) return done(err);
-        mongoose.connection.db.dropDatabase(done);
-    });
+before(async () => {
+    await mongoose.connect('mongodb://localhost:27017/test', { useNewUrlParser: true, useUnifiedTopology: true });
+    await mongoose.connection.db.dropDatabase();
 });
 
 after(() => mongoose.connection.close());
