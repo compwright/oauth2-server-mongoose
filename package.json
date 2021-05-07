@@ -35,13 +35,13 @@
   "dependencies": {
     "@compwright/oauth2-server": "^3.0.3",
     "inquirer": "^7.3.3",
-    "lodash": "^4.17.20",
+    "lodash": "^4.17.21",
     "ms": "^2.1.3"
   },
   "devDependencies": {
-    "eslint": "^7.15.0",
-    "mocha": "^8.2.1",
-    "mongoose": "^5.11.8",
+    "eslint": "^7.25.0",
+    "mocha": "^8.4.0",
+    "mongoose": "^5.12.7",
     "mongoose-bcrypt": "^1.9.0"
   },
   "peerDependencies": {
