@@ -1,6 +1,6 @@
 {
   "name": "oauth2-server-mongoose",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "MongoDB/Mongoose storage backend for oauth2-server",
   "keywords": [
     "mongoose",
