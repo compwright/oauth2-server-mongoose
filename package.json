@@ -41,7 +41,7 @@
   "devDependencies": {
     "eslint": "*",
     "mocha": "*",
-    "mongoose": "^5.13.10",
+    "mongoose": "^9.2.1",
     "mongoose-bcrypt": "^1.9.0"
   },
   "peerDependencies": {
